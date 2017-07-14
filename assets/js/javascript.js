@@ -1,12 +1,11 @@
 /* Debes pegar todo el código en main.js*/
 var frutas = [];
-var records = document.getElementById('records');
+var records = document.getElementById('frutillas');
 
 // Constructor para generar un nuevo producto
 function Producto(compra)
 {
   this.compra = compra.toLowerCase();
-  thi ;
 }
 
 //Método para imprimir un producto en html
@@ -14,7 +13,6 @@ Producto.prototype.toHTML = function ()
 {
   var html = '';
   html += this.compra.toUpperCase() + '<br>';
-  html += 'Cantidad : ' + this.cantidad + '<br>';
   html += '<br><br>';
   return html;
 }
@@ -39,12 +37,11 @@ function printHTML (html)
 
 // Cuando hacen click en el boton de nueva compra, crea una nueva 
 //compra y la añade al array de frutas
-var addCompra = document.getElementById('nuevacompra');
-addCompra.onclick = function () 
+var boton = document.getElementById('agregarFruta');
+boton.onclick = function () 
 {
-  var compra = prompt('Ingrese su nueva compra');
-  var cantidad = prompt('Ingrese la cantidad');
-  var product  = new Producto (compra, cantidad);
+  var compra = document.getElementById('caja')
+  var product  = new Producto (compra);
   frutas.push(product);
   printHTML(product.toHTML());
 };
