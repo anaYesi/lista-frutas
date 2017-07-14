@@ -12,7 +12,7 @@ function Producto(compra)
 Producto.prototype.toHTML = function () 
 {
   var html = '';
-  html += this.compra.toUpperCase() + '<br>';
+  html += "<li>"+this.compra.toUpperCase()+"</li>";
   html += '<br><br>';
   return html;
 }
@@ -21,7 +21,7 @@ Producto.prototype.toHTML = function ()
 function mergeHTML ()
 {
   var html = '';
-  for (i=0; i<frutas.length; i++)
+  for (var i=0; i<frutas.length; i++)
   {
     html += frutas[i].toHTML();
   }
@@ -40,17 +40,18 @@ function printHTML (html)
 var boton = document.getElementById('agregarFruta');
 boton.onclick = function () 
 {
-  var compra = document.getElementById('caja')
+  var compra = document.getElementById('caja').value;
   var product  = new Producto (compra);
   frutas.push(product);
-  printHTML(product.toHTML());
+  mostrar();
+
 };
 
 
 // al hacerle click a mostrar todas las compras, imprime todas las 
 //compras en el html. ESTA ESTÁ BUENA, NO CAMBIAR NADA
-var printAll = document.getElementById('print');
-printAll.onclick = function() 
-{
-  printHTML(mergeHTML());
-}
+// var printAll = document.getElementById('agregarFruta');
+function mostrar() 
+ {
+   printHTML(mergeHTML());
+ }
