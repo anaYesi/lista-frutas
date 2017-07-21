@@ -43,7 +43,9 @@ boton.onclick = function ()
   var compra = document.getElementById('caja').value;
   var product  = new Producto (compra);
   frutas.push(product);
+  document.getElementById('caja').value="";
   mostrar();
+  
 
 };
 
